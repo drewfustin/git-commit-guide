@@ -1,5 +1,5 @@
-# The bluejava Git Commit Message Format Guide
-*Version 0.5.1*
+# The bluejava Git Commit Message Format Guide (appropriated by [drewfustin](https://github.com/drewfustin))
+*Version 0.6.0*
 
 This is a guide to creating better Git commit messages. By following this guide, you and/or your team will create a more consistent and consistently useful change log.
 
@@ -105,21 +105,21 @@ Depending on what type of project management system you are using, these lines m
 
 Every commit [subject line](#subject-line) starts with a [TYPE](#type) in all CAPS and no spaces or other characters preceding it. The recognized types are:
 
-TYPE			| Description	
-:-----------|:------------
-BREAK	| a breaking change such as removing a feature
+TYPE    | Description
+:-------|:------------
+BREAK   | a breaking change such as removing a feature
 FEAT	| new feature in [production code](production-code-note)
 FIX		| bug fix in [production code](production-code-note)
-FORMAT | code formatting, code comment change, etc; (compiled-code neutral)
-DOCS | changes to the documentation (readme, API docs, etc.)
-TEST | adding missing tests or editing tests
-MAINT | updating dev-related maintenance files ("non-[production code](production-code-note)" files)
+FORM    | code formatting, code comment change, etc; (compiled-code neutral)
+TEST    | adding missing tests or editing tests
+DOCS    | changes to the documentation (readme, API docs, etc.)
+OTHER   | updating dev-related maintenance files (requirements, build scripts, etc)
 
 Often a change will include more than one type. Use the type highest on this list that applies. If desired, you can list multiple types separated by a **/**. This is generally only necessary when the types are orthogonal in nature.
 
 For example, a new feature (FEAT type) will often also include new documentation (DOCS) and tests (TEST). In this case, simply state the type as **FEAT**.
 
-If the change is a bugfix (FIX) that required changes to the build script (MAINT), that is less obvious and probably helpful to be stated as a multi-type change, **FIX/MAINT**.
+If the change is a bugfix (FIX) that required changes to the build script (OTHER), that is less obvious and probably helpful to be stated as a multi-type change, **FIX/OTHER**.
 
 Note the relationship between various *types* of commits and the expectation of a corresponding change in [Semantic Versioning (SemVer)](http://semver.org) version number:
 
@@ -136,7 +136,7 @@ Note: Use of the term *production code* here refers to any textual or binary dat
 Files that don't meet this criteria are:
 
 - files that define the build process (package.json, grunt config, bower.json, etc.)
-- files that make up an independent testing package. (Which may include code, config files, images, and all other file types that are part of production). 
+- files that make up an independent testing package. (Which may include code, config files, images, and all other file types that are part of production).
 - Project planning and organization files, task lists, Interface design sketches, UML diagrams, etc.
 - Source assets (PSD files, AI files, etc.) that do not get processed/integrated by the build process.
 
@@ -156,13 +156,13 @@ TEST(crypt): Increase test coverage of crypt function
 ```git
 BREAK(users): Remove getFriends API endpoint
 
-In accordance with new privacy policy, remove the getFriends API endpoint. 
+In accordance with new privacy policy, remove the getFriends API endpoint.
 (The endpoint will continue to exist for a while and return a deprecation notice)
 
 Implements #2105
 ```
 ```git
-MAINT: add bower.json
+MX: add bower.json
 ```
 
 ## Quick Reference
